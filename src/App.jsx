@@ -3,7 +3,7 @@ import { Sidebar } from './components/Sidebar'
 import { HeroSection } from './components/HeroSection'
 import { ExpertiseSection } from './components/ExpertiseSection'
 import { StatsSection } from './components/StatsSection'
-import { SkillsSection } from './components/SkillsSection'
+
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -11,11 +11,12 @@ function App() {
   return (
     <div className="flex flex-col lg:flex-row min-h-screen w-full bg-white">
       <Sidebar collapsed={sidebarCollapsed} />
-      <main className={`w-full min-h-screen overflow-y-auto bg-white transition-all duration-300 ${
+      
+      <div className={`flex-1 transition-all duration-300 ${
         sidebarCollapsed ? 'lg:ml-[64px]' : 'lg:ml-[256px]'
       }`}>
         {/* Header Bar - Full Width */}
-        <div className="flex h-16 shrink-0 items-center justify-between px-6 border-b-2 border-black">
+        <div className="flex h-16 shrink-0 items-center justify-between px-6 border-b-2 border-black sticky top-0 bg-white z-50">
           <div className="flex items-center gap-1.5 ml-0">
             <button
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
@@ -29,19 +30,21 @@ function App() {
             <div className="w-px h-6 bg-black mx-2"></div>
             <span className="text-sm font-medium text-black">Home</span>
           </div>
-          <button className="px-4 py-1.5 bg-primary-500 hover:bg-primary-600 text-white font-medium border border-black transition-colors">
+          <button className="h-7 px-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-medium border border-black transition-colors">
             Contact
           </button>
         </div>
         
-        {/* Content Container */}
-        <div className="max-w-6xl mx-auto px-6 py-10">
-          <HeroSection />
-          <SkillsSection />
-          <ExpertiseSection />
-          <StatsSection />
-        </div>
-      </main>
+        {/* Main Content */}
+        <main className="w-full min-h-screen overflow-y-auto bg-white">
+          {/* Content Container */}
+          <div className="max-w-6xl mx-auto px-6 py-10">
+            <HeroSection />
+            <ExpertiseSection />
+            <StatsSection />
+          </div>
+        </main>
+      </div>
     </div>
   )
 }

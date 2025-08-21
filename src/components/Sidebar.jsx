@@ -5,13 +5,15 @@ import {
   YoutubeIcon,
   MailIcon,
   HomeIcon,
-  UserIcon,
   BriefcaseIcon,
   NewspaperIcon,
   CodeIcon,
-  FolderIcon,
+  HammerIcon,
   BuildingIcon,
   Twitter,
+  VideoIcon,
+  BookOpenIcon,
+  UsersIcon,
 } from 'lucide-react'
 
 // Custom TikTok Icon Component
@@ -36,33 +38,33 @@ export function Sidebar({ collapsed = false }) {
       active: true,
     },
     {
-      icon: <UserIcon size={18} />,
+      icon: <BriefcaseIcon size={18} />,
       label: 'Experience',
       active: false,
     },
     {
-      icon: <FolderIcon size={18} />,
+      icon: <HammerIcon size={18} />,
       label: 'Projects',
       active: false,
     },
     {
-      icon: <NewspaperIcon size={18} />,
+      icon: <UsersIcon size={18} />,
+      label: 'Leadership',
+      active: false,
+    },
+    {
+      icon: <VideoIcon size={18} />,
       label: 'Media',
       active: false,
     },
     {
-      icon: <CodeIcon size={18} />,
+      icon: <BookOpenIcon size={18} />,
       label: 'Blogs',
       active: false,
     },
     {
       icon: <CodeIcon size={18} />,
       label: 'Tech Stack',
-      active: false,
-    },
-    {
-      icon: <BuildingIcon size={18} />,
-      label: 'Holding Company',
       active: false,
     },
   ]
@@ -73,8 +75,8 @@ export function Sidebar({ collapsed = false }) {
     }`}>
       <div className={`flex flex-col h-full ${collapsed ? 'p-3' : 'p-6'}`}>
         {/* Profile Section */}
-        <div className={`flex flex-col items-center mb-8 ${collapsed ? 'px-0' : ''}`}>
-          <div className={`${collapsed ? 'w-12 h-12' : 'w-36 h-36'} rounded-lg overflow-hidden mb-4 border border-black relative group`}>
+        <div className={`flex flex-col items-center mb-2 ${collapsed ? 'px-0' : ''}`}>
+          <div className={`${collapsed ? 'w-12 h-12' : 'w-36 h-36'} rounded-lg overflow-hidden mb-2 border border-black relative group`}>
             <img
               src="/Amaan.png"
               alt="Amaan Sheikh"
@@ -98,24 +100,33 @@ export function Sidebar({ collapsed = false }) {
         </div>
 
         {/* Social Media Icons */}
-        <div className={`flex justify-center gap-2 mb-4 ${collapsed ? 'flex-col' : ''}`}>
-          {[GithubIcon, LinkedinIcon, Twitter, TikTokIcon, MailIcon].map(
-            (Icon, index) => (
-              <a
-                key={index}
-                href="#"
-                className="w-6 h-6 flex items-center justify-center border border-accent-500 text-accent-700 hover:bg-accent-500 hover:text-white transition-colors"
-              >
-                <Icon size={12} />
-              </a>
-            ),
+        <div className={`flex justify-center gap-2 ${collapsed ? 'flex-col items-center mb-2' : 'mb-3'}`}>
+          {!collapsed ? (
+            // Expanded state - show all icons
+            [GithubIcon, LinkedinIcon, Twitter, TikTokIcon, MailIcon].map(
+              (Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="w-6 h-6 flex items-center justify-center border border-accent-500 text-accent-700 hover:bg-accent-500 hover:text-white transition-colors"
+                >
+                  <Icon size={12} />
+                </a>
+              ),
+            )
+          ) : (
+            // Collapsed state - show only LinkedIn in blue
+            <a
+              href="#"
+              className="h-7 w-7 flex items-center justify-center border border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-colors"
+            >
+              <LinkedinIcon size={14} />
+            </a>
           )}
         </div>
         
         {/* Separator Line */}
-        {!collapsed && (
-          <div className="border-t border-accent-300 mb-4"></div>
-        )}
+        <div className="border-t border-accent-300 mb-3"></div>
 
         {/* Portfolio Section Header */}
         {!collapsed && (
