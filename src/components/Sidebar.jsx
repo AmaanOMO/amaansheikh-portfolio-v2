@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   GithubIcon,
   LinkedinIcon,
@@ -15,57 +15,61 @@ import {
   BookOpenIcon,
   UsersIcon,
 } from 'lucide-react'
+import { TikTokIcon } from './TikTokIcon'
 
-// Custom TikTok Icon Component
-const TikTokIcon = ({ size = 12, className = "" }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.11V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-)
+export function Sidebar({ collapsed = false, onNavigate }) {
+  const [activeItem, setActiveItem] = useState('Home')
 
-export function Sidebar({ collapsed = false }) {
+  const handleNavigation = (label) => {
+    setActiveItem(label)
+    if (onNavigate) {
+      onNavigate(label)
+    }
+  }
+
   // Navigation items
   const navItems = [
     {
       icon: <HomeIcon size={18} />,
       label: 'Home',
-      active: true,
+      active: activeItem === 'Home',
+      onClick: () => handleNavigation('Home')
     },
     {
       icon: <BriefcaseIcon size={18} />,
       label: 'Experience',
-      active: false,
+      active: activeItem === 'Experience',
+      onClick: () => handleNavigation('Experience')
     },
     {
       icon: <HammerIcon size={18} />,
       label: 'Projects',
-      active: false,
+      active: activeItem === 'Projects',
+      onClick: () => handleNavigation('Projects')
     },
     {
       icon: <UsersIcon size={18} />,
       label: 'Leadership',
-      active: false,
+      active: activeItem === 'Leadership',
+      onClick: () => handleNavigation('Leadership')
     },
     {
       icon: <VideoIcon size={18} />,
       label: 'Media',
-      active: false,
+      active: activeItem === 'Media',
+      onClick: () => handleNavigation('Media')
     },
     {
       icon: <BookOpenIcon size={18} />,
       label: 'Blogs',
-      active: false,
+      active: activeItem === 'Blogs',
+      onClick: () => handleNavigation('Blogs')
     },
     {
       icon: <CodeIcon size={18} />,
       label: 'Tech Stack',
-      active: false,
+      active: activeItem === 'Tech Stack',
+      onClick: () => handleNavigation('Tech Stack')
     },
   ]
 
@@ -171,9 +175,9 @@ export function Sidebar({ collapsed = false }) {
           <ul className="space-y-1">
             {navItems.map((item, index) => (
               <li key={index}>
-                <a
-                  href="#"
-                  className={`flex items-center ${collapsed ? 'justify-center' : 'gap-2'} px-2 py-1.5 transition-colors ${
+                <button
+                  onClick={item.onClick}
+                  className={`flex items-center ${collapsed ? 'justify-center' : 'gap-2'} px-2 py-1.5 transition-colors w-full text-left ${
                     item.active 
                       ? 'bg-primary-500 text-white font-medium' 
                       : 'text-accent-700 hover:bg-accent-100'
@@ -182,7 +186,7 @@ export function Sidebar({ collapsed = false }) {
                 >
                   <span className={collapsed ? '' : 'w-5'}>{item.icon}</span>
                   {!collapsed && item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
