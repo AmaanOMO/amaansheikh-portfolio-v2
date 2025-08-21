@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Sidebar } from './components/Sidebar'
 import { HeroSection } from './components/HeroSection'
 import { ExpertiseSection } from './components/ExpertiseSection'
-import { StatsSection } from './components/StatsSection'
+import { WorldMapSection } from './components/WorldMapSection'
 
 
 function App() {
@@ -30,19 +30,22 @@ function App() {
             <div className="w-px h-6 bg-black mx-2"></div>
             <span className="text-sm font-medium text-black">Home</span>
           </div>
-          <button className="h-7 px-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-medium border border-black transition-colors">
-            Contact
-          </button>
+          <button 
+                    onClick={() => window.open('mailto:amaansheikhme@gmail.com', '_blank')}
+                    className="h-7 px-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-medium border border-black transition-colors"
+                  >
+                    Contact
+                  </button>
         </div>
         
         {/* Main Content */}
         <main className="w-full min-h-screen overflow-y-auto bg-white">
-          {/* Content Container */}
-          <div className="max-w-6xl mx-auto px-6 py-10">
-            <HeroSection />
-            <ExpertiseSection />
-            <StatsSection />
-          </div>
+                  {/* Content Container */}
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <HeroSection />
+          <ExpertiseSection />
+          <WorldMapSection />
+        </div>
         </main>
       </div>
     </div>

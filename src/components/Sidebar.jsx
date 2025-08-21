@@ -103,21 +103,52 @@ export function Sidebar({ collapsed = false }) {
         <div className={`flex justify-center gap-2 ${collapsed ? 'flex-col items-center mb-2' : 'mb-3'}`}>
           {!collapsed ? (
             // Expanded state - show all icons
-            [GithubIcon, LinkedinIcon, Twitter, TikTokIcon, MailIcon].map(
-              (Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-6 h-6 flex items-center justify-center border border-accent-500 text-accent-700 hover:bg-accent-500 hover:text-white transition-colors"
-                >
-                  <Icon size={12} />
-                </a>
-              ),
-            )
+            <>
+              <a 
+                href="https://github.com/AmaanOMO" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-6 h-6 flex items-center justify-center border border-black/40 text-black hover:bg-black hover:text-white transition-colors"
+              >
+                <GithubIcon size={12} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/amaansheikh-swe/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-6 h-6 flex items-center justify-center border border-black/40 text-black hover:bg-black hover:text-white transition-colors"
+              >
+                <LinkedinIcon size={12} />
+              </a>
+              <a 
+                href="https://x.com/amaansheikhx" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-6 h-6 flex items-center justify-center border border-black/40 text-black hover:bg-black hover:text-white transition-colors"
+              >
+                <Twitter size={12} />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@amaanomo" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-6 h-6 flex items-center justify-center border border-black/40 text-black hover:bg-black hover:text-white transition-colors"
+              >
+                <TikTokIcon size={12} />
+              </a>
+              <a 
+                href="mailto:amaansheikhme@gmail.com"
+                className="w-6 h-6 flex items-center justify-center border border-black/40 text-black hover:bg-black hover:text-white transition-colors"
+              >
+                <MailIcon size={12} />
+              </a>
+            </>
           ) : (
             // Collapsed state - show only LinkedIn in blue
             <a
-              href="#"
+              href="https://www.linkedin.com/in/amaansheikh-swe/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="h-7 w-7 flex items-center justify-center border border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-colors"
             >
               <LinkedinIcon size={14} />
