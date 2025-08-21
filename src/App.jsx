@@ -4,6 +4,7 @@ import { HeroSection } from './components/HeroSection'
 import { ExpertiseSection } from './components/ExpertiseSection'
 import { WorldMapSection } from './components/WorldMapSection'
 import { ExperienceSection } from './components/ExperienceSection'
+import { LeadershipSection } from './components/LeadershipSection'
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
@@ -19,10 +20,7 @@ function App() {
           <p className="text-lg text-gray-600">Projects section coming soon...</p>
         </div>
       case 'Leadership':
-        return <div className="py-8 border-t border-gray-200 mt-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Leadership</h2>
-          <p className="text-lg text-gray-600">Leadership section coming soon...</p>
-        </div>
+        return <LeadershipSection />
       case 'Media':
         return <div className="py-8 border-t border-gray-200 mt-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Media</h2>
