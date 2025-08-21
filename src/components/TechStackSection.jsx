@@ -93,7 +93,7 @@ export function TechStackSection() {
   const currentCategory = techCategories.find(cat => cat.name === activeCategory)
 
   return (
-    <section className="py-2 mt-2">
+    <section className="py-0 mt-0">
       <div className="mb-8">
         {/* Header */}
         <div className="mb-6">
@@ -102,14 +102,14 @@ export function TechStackSection() {
         </div>
 
         {/* Navigation Bar */}
-        <div className="flex w-full mb-8">
+        <div className="flex flex-col sm:flex-row w-full mb-8">
           {techCategories.map((category) => (
             <button
               key={category.name}
               onClick={() => setActiveCategory(category.name)}
               className={`flex-1 flex items-center justify-center gap-2 py-3 transition-colors ${
                 activeCategory === category.name
-                  ? 'border-b-2 border-primary-500 text-gray-900 font-medium'
+                  ? 'border-b-2 sm:border-b-2 border-primary-500 text-gray-900 font-medium'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -127,7 +127,7 @@ export function TechStackSection() {
             <p className="text-gray-700 mb-6">{currentCategory.description}</p>
             
             {/* Technology Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {currentCategory.technologies.map((tech, index) => (
                 <div key={index} className="bg-white p-4 rounded-lg border border-gray-300 text-center">
                   <div className="text-2xl mb-2">{tech.icon}</div>

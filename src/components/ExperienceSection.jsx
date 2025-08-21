@@ -13,7 +13,7 @@ export function ExperienceSection() {
           </p>
           
           {/* Tags/Buttons */}
-          <div className="grid grid-cols-5 gap-3 mb-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-8 w-full">
             {["Building what's next", "Staying ambitious", "Sharing knowledge", "Always learning", "Enjoying the journey"].map((tag, index) => (
               <span key={index} className="px-4 py-3 bg-gray-200 text-gray-800 rounded-md text-sm font-medium text-center">
                 {tag}

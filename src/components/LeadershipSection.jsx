@@ -14,7 +14,7 @@ export function LeadershipSection() {
   }
 
   return (
-    <section className="py-8 mt-8">
+    <section className="py-2 mt-2">
       <div className="mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left Side - Text Content */}

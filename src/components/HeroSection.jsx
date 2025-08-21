@@ -51,7 +51,7 @@ export function HeroSection() {
         </div>
       </div>
       
-      <div className="flex items-start gap-8 mb-6">
+      <div className="flex flex-col lg:flex-row items-start gap-8 mb-6">
         <div className="flex-1">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
             Hey, I'm <span className="text-primary-500">Amaan</span>
@@ -76,18 +76,18 @@ export function HeroSection() {
           </div>
         </div>
         
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 w-full lg:w-auto">
           <div className="flex flex-col gap-4">
             <img
               src="/suit.png"
               alt="Amaan Sheikh in suit"
-              className="w-48 h-48 object-cover rounded-lg border border-black"
+              className="w-full lg:w-48 h-48 object-cover rounded-lg border border-black mx-auto lg:mx-0"
               style={{ objectPosition: '50% 40%' }}
             />
             <img
               src="/workingme.png"
               alt="Amaan Sheikh working"
-              className="w-48 h-48 object-cover rounded-lg border border-black"
+              className="w-full lg:w-48 h-48 object-cover rounded-lg border border-black mx-auto lg:mx-0"
             />
           </div>
         </div>
