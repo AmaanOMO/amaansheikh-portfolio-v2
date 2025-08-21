@@ -11,6 +11,7 @@ import { TechStackSection } from './components/TechStackSection'
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [activeSection, setActiveSection] = useState('Home')
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
 
   const renderContent = () => {
     switch (activeSection) {
@@ -45,7 +46,21 @@ function App() {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen w-full bg-white">
-      <Sidebar collapsed={sidebarCollapsed} onNavigate={setActiveSection} />
+      {/* Mobile Sidebar Overlay */}
+      {mobileSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setMobileSidebarOpen(false)}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <Sidebar 
+        collapsed={sidebarCollapsed} 
+        onNavigate={setActiveSection}
+        mobileOpen={mobileSidebarOpen}
+        onMobileClose={() => setMobileSidebarOpen(false)}
+      />
       
       <div className={`flex-1 transition-all duration-300 ${
         sidebarCollapsed ? 'lg:ml-[64px]' : 'lg:ml-[256px]'
@@ -54,7 +69,13 @@ function App() {
         <div className="flex h-16 shrink-0 items-center justify-between px-6 border-b-2 border-black sticky top-0 bg-white z-50">
           <div className="flex items-center gap-1.5 ml-0">
             <button
-              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              onClick={() => {
+                if (window.innerWidth >= 1024) {
+                  setSidebarCollapsed(!sidebarCollapsed)
+                } else {
+                  setMobileSidebarOpen(!mobileSidebarOpen)
+                }
+              }}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-7 w-7 hover:bg-primary hover:text-white"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
