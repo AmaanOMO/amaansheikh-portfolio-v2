@@ -21,7 +21,7 @@ export function LeadershipSection() {
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Leadership & Community</h3>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Building and leading communities is one of the most fulfilling experiences ever, and I recommend everyone find a way to do it. Through founding UB Forge and guiding my peers in Theta Tau, I've learned that real leadership truly just comes down to meeting amazing people, making lifelong friends, and growing together while pushing each other forward. When you focus on these bonds and forget about the whole "leader" title, leadership comes naturally.            </p>
+              Building and leading communities is one of the most fulfilling experiences ever, and I recommend everyone find a way to do it. Through founding UB Forge and guiding my peers in Theta Tau, I've learned that real leadership truly just comes down to meeting amazing people, making lifelong friends, and growing together while pushing each other forward. When you focus on these bonds and forget about the whole "leader" title, leadership will come naturally.            </p>
           </div>
 
           {/* Right Side - Image Carousel */}
